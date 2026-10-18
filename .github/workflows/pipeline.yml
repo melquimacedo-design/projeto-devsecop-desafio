@@ -66,8 +66,7 @@ jobs:
       - name: 📦 SCA - Grype
         run: |
           npm install --package-lock-only 
-          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh \
-            | sh -s -- -b /usr/local/bin
+          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
           grype dir:./ --fail-on medium 
 
       # ── Empacota o site em um artefato tar (formato que o Pages consome)
