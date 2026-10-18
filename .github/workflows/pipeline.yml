@@ -38,7 +38,7 @@ jobs:
           echo "Nenhum segredo inserido no código por enquanto"
       #   sed -i "s|__VAR__|$VAR|g" src/script.js
 
-      - name: ⚙️ Build
+      - name: ⚙️ Build 
         run: |
           echo "Verificando arquivos..."
           ls src/
