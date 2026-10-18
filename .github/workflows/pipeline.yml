@@ -52,7 +52,8 @@ jobs:
       # ❌ PASSO A IMPLEMENTAR — SAST com Semgrep
       # Dica: instale com "pip install semgrep" e rode
       #   semgrep scan --config auto --config p/xss --error src/
-      - name: 🔍 SAST - Semgrep        run: |
+      - name: 🔍 SAST - Semgrep        
+        run: |
           pip install semgrep
           semgrep scan --config auto --error src/   
       # ❌ PASSO A IMPLEMENTAR — SCA com Grype
@@ -64,7 +65,7 @@ jobs:
       #   grype dir:. --fail-on medium
       - name: 📦 SCA - Grype
         run: |
-          npm install --package-lock-only
+          npm install --package-lock-only --no-audit --no-fund
           curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh \
             | sh -s -- -b /usr/local/bin
           grype dir:./ --fail-on medium 
