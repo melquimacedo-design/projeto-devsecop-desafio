@@ -42,12 +42,13 @@ A pipeline está **incompleta**. Os steps de segurança precisam ser implementad
 
 **## 🐛 Vulnerabilidades Encontradas e Corrigidas**
 
-Durante a execução inicial da esteira, foram detectados e corrigidos **4 problemas** críticos no código original:
+Durante a execução inicial da esteira, foram detectados e corrigidos **5 problemas** críticos no código original:
 
 1. **[Chave de API exposta]:** Detectada pelo Gitleaks nas linhas 1: API_KEY e 2: DB_PASSWORD, do arquivo src/script.js. **Correção:** As linhas foram removidas do código.
 2. **[Função insegura]:** Detectada pelo Semgrep no uso de eval() na função addTask() em src/script.js. **Correção:** Substituída a função por uma alternativa segura recomendada pelas boas práticas, ou seja chamada direta sem uso de eval().
 3. **[Vulnerabilidade XSS]:** Detectada pelo Semgrep no uso de innerHTML na função addTask() em src/script.js. **Correção:** Implementada a sanitização correta dos dados de entrada do usuário, criado via DOM no padrão já utilizado no código.
 4. **[Dependências desatualizadas]:** Detectadas pelo Grype nas dependências: lodash, express e axios declaradas em package.json. **Correção:** Atualizadas as bibliotecas para as versões estáveis mais recente livre de CVEs.
+5. **[Dependências desatualizadas]:** Atualizar o artefato indicado na linha 127 do código para a versão 4.1.3
 
 Aprovadas todas as correções, a esteira passou a rodar com status **verde**, efetuando o deploy automático na infraestrutura.
 
